@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.ipynb_checkpoints/
+
+# Build / firmware
+.pio/
+build/
+*.elf
+*.bin
+*.o
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Data (keep small samples; ignore bulk captures)
+data/**/*.npy
+data/**/*.npz
+data/**/*.mat
+data/**/*.bin
+data/**/*.iq
+data/**/*.csv
+!data/sample/**
+!hardware/bom/*.csv
+
+# Slicer / CAD scratch
+*.gcode
+*.3mf.bak
+*~

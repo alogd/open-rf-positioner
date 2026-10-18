@@ -1,0 +1,15 @@
+# Normalize line endings
+* text=auto
+
+# Treat large binaries as binary (enable Git LFS below if you install it)
+*.stl binary
+*.step binary
+*.stp binary
+*.FCStd binary
+*.png binary
+*.jpg binary
+*.pdf binary
+
+# To track large meshes/data with Git LFS, install LFS and uncomment:
+# *.stl filter=lfs diff=lfs merge=lfs -text
+# *.step filter=lfs diff=lfs merge=lfs -text
