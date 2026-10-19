@@ -2,13 +2,13 @@
 
 **A low-cost, open-source, 3D-printable automated positioning platform for high-resolution antenna characterization and Angle-of-Arrival (AoA) measurements.**
 
-![Measurement platform in CAD software](/docs/images/platform_view1.png)
+![Measurement platform in CAD software](docs/images/platform_view1.png)
 
 Reproducible over-the-air (OTA) angular measurements are a bottleneck for validating AoA, beamforming, and antenna characterization on low-cost Software-Defined Radio (SDR) platforms. Manual positioning introduces angular uncertainty and limits repeatability and dataset scalability. This project is a motorized, RF-hardware-agnostic rotational base — a moving platform plus automated sweep/calibration software that accepts user-chosen RF and antenna hardware — for repeatable antenna characterization and AoA measurements.
 
 The platform is built entirely from a desktop 3D printer and low-cost, off-the-shelf parts, with no custom electronics or machined components. It rotates one antenna about a single vertical axis while preserving the transmitter–receiver geometry across the sweep, so the commanded angle is the only thing that changes.
 
-> **Status:** Hardware design, firmware, and control/processing software. 3D filesa and the analytical BOM are being added — see the open items in each folder's README.
+> **Status:** The hardware design, print files, BOM, firmware, and basic host control are in the repo. The OFDM-monopulse processing/analysis pipeline, the characterization writeup, and example data are still being added — see the open items in each folder's README.
 
 ---
 
@@ -36,29 +36,36 @@ The platform is built entirely from a desktop 3D printer and low-cost, off-the-s
 | Assembled size | ≈ 70 × 52 × 7.5 cm (W × L × H) |
 | Material cost | ≈ €55 |
 
-Values are from the platform's experimental characterization. See [`docs/`](docs/) for the measurement writeup.
+Values are from the platform's experimental characterization; the full measurement writeup is in progress (see [`docs/`](docs/)).
 
 ## Repository layout
 
 ```
 open-rf-positioner/
 ├── hardware/            Mechanical design and build
-│   ├── cad/             Source CAD (editable parametric models)
 │   ├── stl/             Print-ready meshes
 │   ├── bom/             Analytical bill of materials
-│   └── assembly/        Assembly guide, print settings, wiring
+│   └── assembly/        Assembly, wiring, and calibration guide
 ├── firmware/            ESP32-H2 motor-control firmware
-│   └── esp32-h2/        Source, serial command interface
-├── software/            Host-side control and data pipeline
-│   ├── acquisition/     Sweep driver + SDR acquisition
-│   ├── processing/      OFDM-enhanced monopulse / AoA processing
-│   └── analysis/        Metrics, plots, repeatability analysis
-├── docs/                Documentation, figures, characterization
-│   ├── images/          Photos, renders, block/wiring diagrams
-│   └── characterization/ Repeatability & validation results
-└── data/                Datasets
-    └── sample/          Small example capture for a quick start
+│   └── esp32-h2/        Firmware source + serial command interface
+├── software/            Host-side control (Python)
+│   ├── StepperController.py   Serial driver for the base
+│   └── basic_example.py       Minimal sweep example
+├── docs/                Documentation and figures
+│   └── images/          Photos, renders, wiring diagram
+├── CITATION.cff
+├── LICENSE
+└── README.md
 ```
+
+## Design source (CAD)
+
+The mechanical design is **parametric and hosted on Onshape**. Copy the
+document into your own Onshape workspace to modify, extend, or re-export the
+parts for a different payload or setup, then export fresh meshes to replace
+those in [`hardware/stl/`](hardware/stl/).
+
+**[Open the CAD on Onshape →](https://cad.onshape.com/documents/38afda30efdd53e54d52e6ab/w/fc69859d114c8133178aba7d/e/cd36117da42823404910bc80)**
 
 ## How it works
 
@@ -91,11 +98,11 @@ A move first returns `OK MOVING`; invalid input returns `ERROR OUT_OF_RANGE`, `E
 2. **Source the components** — see the [`BOM`](hardware/bom/).
 3. **Assemble** — follow the [assembly guide](hardware/assembly/).
 4. **Flash the firmware** — [`firmware/esp32-h2/`](firmware/esp32-h2/).
-5. **Run a sweep** — [`software/acquisition/`](software/acquisition/) commands the base and acquires from your SDR; [`software/processing/`](software/processing/) and [`software/analysis/`](software/analysis/) turn captures into AoA estimates and plots.
+5. **Run a sweep** — [`software/`](software/) drives the base over serial: [`StepperController.py`](software/StepperController.py) is the control driver and [`basic_example.py`](software/basic_example.py) a minimal sweep script to adapt to your SDR acquisition.
 
 ## Reference application: OFDM-enhanced monopulse AoA
 
-The base was validated using an **OFDM-enhanced phase-comparison monopulse** AoA estimator as a representative payload: a modified dual-channel ADALM-Pluto SDR (AD9361-compatible 2×2 mode) at 2.3 GHz feeding two directional log-periodic antennas at λ/2 = 65 mm. This is only the reference instantiation — the platform is not specific to it and extends naturally to radiation-pattern measurement and beamforming/MIMO array characterization as a function of angle. The processing pipeline is included under [`software/`](software/).
+The base was validated using an **OFDM-enhanced phase-comparison monopulse** AoA estimator as a representative payload: a modified dual-channel ADALM-Pluto SDR (AD9361-compatible 2×2 mode) at 2.3 GHz feeding two directional log-periodic antennas at λ/2 = 65 mm. This is only the reference instantiation — the platform is not specific to it and extends naturally to radiation-pattern measurement and beamforming/MIMO array characterization as a function of angle. Host-side control scripts are under [`software/`](software/); the OFDM-monopulse processing pipeline is being added.
 
 ## Citing this work
 
@@ -104,7 +111,3 @@ If you use this platform in academic work, please cite the platform paper (and t
 ## License
 
 Hardware is released under **CERN-OHL-S v2** and software/firmware under the **MIT License** — see [`LICENSE`](LICENSE) and [`hardware/LICENSE`](hardware/LICENSE). *(Confirm these choices before first release — see note in [`LICENSE`](LICENSE).)*
-
-## Acknowledgment
-
-This work was supported by the European Union's Horizon Europe research and innovation program under grant agreement **HE-MSCA-SE-6G-TERAFIT-101131501**.

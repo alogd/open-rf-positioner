@@ -3,6 +3,7 @@
 Mechanical design and build files for the positioning base.
 
 ## Contents
+- **Source CAD** — the parametric design lives on [Onshape](https://cad.onshape.com/documents/38afda30efdd53e54d52e6ab/w/fc69859d114c8133178aba7d/e/cd36117da42823404910bc80); copy it to your own workspace to modify, extend, or re-export parts.
 - **[`stl/`](stl/)** — print-ready meshes exported from the CAD. One file per printable part; name parts clearly (e.g. `sector_segment_1.stl`, `arm.stl`, `pinion.stl`, `pinion_cover.stl`, `base_plate.stl`).
 - **[`bom/`](bom/)** — analytical bill of materials (parts, quantities, unit costs, sources).
 - **[`assembly/`](assembly/)** — assembly guide, print settings, and wiring.

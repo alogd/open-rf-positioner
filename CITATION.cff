@@ -1,0 +1,68 @@
+# Citation File Format 1.2.0  —  https://citation-file-format.github.io/
+# GitHub reads this file to render a "Cite this repository" button and to
+# export BibTeX/APA. Validate with:  pip install cffconvert && cffconvert --validate
+#
+# TODO (maintainer):
+#   - complete the author list below (add co-authors / ORCIDs)
+#   - set `version` and `date-released` when you tag a release
+#   - fill in and uncomment `preferred-citation` (the platform paper) and
+#     `references` (the prior OFDM-monopulse paper)
+
+cff-version: 1.2.0
+message: "If you use this platform, please cite the associated paper(s) and this repository."
+title: "open-rf-positioner: a low-cost automated positioning platform for OTA angular measurements"
+abstract: >-
+  A low-cost, open-source, 3D-printable automated positioning platform for
+  reproducible over-the-air angular measurements and Angle-of-Arrival (AoA)
+  characterization on commercial off-the-shelf SDR hardware.
+type: software
+repository-code: "https://github.com/alogd/open-rf-positioner"
+url: "https://github.com/alogd/open-rf-positioner"
+license: MIT          # software/firmware; hardware is CERN-OHL-S-2.0 (see hardware/LICENSE)
+keywords:
+  - angle-of-arrival
+  - AoA estimation
+  - antenna measurement
+  - over-the-air measurement
+  - software-defined radio
+  - OFDM
+  - monopulse
+  - open hardware
+  - 6G
+  - integrated sensing and communications
+
+authors:
+  - family-names: Alogdianakis
+    given-names: Georgios
+  # - family-names: TODO
+  #   given-names: TODO
+  #   orcid: "https://orcid.org/0000-0000-0000-0000"
+  #   affiliation: "TODO"
+
+# version: 1.0.0            # TODO: set on first tagged release
+# date-released: 2026-01-01 # TODO: YYYY-MM-DD of that release
+
+# ---------------------------------------------------------------------------
+# Paper to cite in preference to the software (fill in, then uncomment):
+# ---------------------------------------------------------------------------
+# preferred-citation:
+#   type: conference-paper
+#   title: "TODO — platform paper title"
+#   authors:
+#     - family-names: TODO
+#       given-names: TODO
+#   collection-title: "TODO — proceedings / conference"
+#   year: 2027
+#   doi: "TODO"
+
+# ---------------------------------------------------------------------------
+# Related work, e.g. the prior OFDM-enhanced monopulse paper (fill in refs):
+# ---------------------------------------------------------------------------
+# references:
+#   - type: conference-paper
+#     title: "Toward Robust ISAC Beam Tracking: Experimental OFDM-Enhanced Monopulse AoA Estimation with Reduced Tracking Variability"
+#     authors:
+#       - family-names: TODO
+#         given-names: TODO
+#     year: TODO
+#     doi: "TODO"
