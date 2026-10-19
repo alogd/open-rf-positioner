@@ -5,8 +5,8 @@
 # TODO (maintainer):
 #   - complete the author list below (add co-authors / ORCIDs)
 #   - set `version` and `date-released` when you tag a release
-#   - fill in and uncomment `preferred-citation` (the platform paper) and
-#     `references` (the prior OFDM-monopulse paper)
+#   - fill in and uncomment `preferred-citation` once the platform paper is published
+#     (the prior OFDM-monopulse paper is already filled under `references`)
 
 cff-version: 1.2.0
 message: "If you use this platform, please cite the associated paper(s) and this repository."
@@ -56,13 +56,24 @@ authors:
 #   doi: "TODO"
 
 # ---------------------------------------------------------------------------
-# Related work, e.g. the prior OFDM-enhanced monopulse paper (fill in refs):
+# Related work: the prior OFDM-enhanced monopulse paper (published).
 # ---------------------------------------------------------------------------
-# references:
-#   - type: conference-paper
-#     title: "Toward Robust ISAC Beam Tracking: Experimental OFDM-Enhanced Monopulse AoA Estimation with Reduced Tracking Variability"
-#     authors:
-#       - family-names: TODO
-#         given-names: TODO
-#     year: TODO
-#     doi: "TODO"
+references:
+  - type: conference-paper
+    title: "Toward Robust ISAC Beam Tracking: Experimental OFDM-Enhanced Monopulse AoA Estimation with Reduced Tracking Variability"
+    authors:
+      - family-names: Alogdianakis
+        given-names: Georgios
+      - family-names: Tselios
+        given-names: Christos
+      - family-names: Smyrilios
+        given-names: Angelos
+      - family-names: Voros
+        given-names: Nikolaos
+      - family-names: Antonopoulos
+        given-names: Christos
+    collection-title: "2026 15th International Symposium on Communication Systems, Networks and Digital Signal Processing (CSNDSP)"
+    year: 2026
+    doi: "10.1109/CSNDSP68462.2026.11654469"
+    publisher:
+      name: "IEEE"

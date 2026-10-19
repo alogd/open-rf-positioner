@@ -102,12 +102,16 @@ A move first returns `OK MOVING`; invalid input returns `ERROR OUT_OF_RANGE`, `E
 
 ## Reference application: OFDM-enhanced monopulse AoA
 
-The base was validated using an **OFDM-enhanced phase-comparison monopulse** AoA estimator as a representative payload: a modified dual-channel ADALM-Pluto SDR (AD9361-compatible 2×2 mode) at 2.3 GHz feeding two directional log-periodic antennas at λ/2 = 65 mm. This is only the reference instantiation — the platform is not specific to it and extends naturally to radiation-pattern measurement and beamforming/MIMO array characterization as a function of angle. Host-side control scripts are under [`software/`](software/); the OFDM-monopulse processing pipeline is being added.
+The base was validated using an **OFDM-enhanced phase-comparison monopulse** AoA estimator ([Alogdianakis et al., CSNDSP 2026](https://doi.org/10.1109/CSNDSP68462.2026.11654469)) as a representative payload: a modified dual-channel ADALM-Pluto SDR (AD9361-compatible 2×2 mode) at 2.3 GHz feeding two directional log-periodic antennas at λ/2 = 65 mm. This is only the reference instantiation — the platform is not specific to it and extends naturally to radiation-pattern measurement and beamforming/MIMO array characterization as a function of angle. Host-side control scripts are under [`software/`](software/); the OFDM-monopulse processing pipeline is being added.
 
 ## Citing this work
 
-If you use this platform in academic work, please cite the platform paper (and the prior algorithm paper where relevant). See [`CITATION.cff`](CITATION.cff). BibTeX entries will be added once the paper is published.
+If you use this platform in academic work, please cite the platform paper (under review) and the prior algorithm paper where relevant:
+
+> G. Alogdianakis, C. Tselios, A. Smyrilios, N. Voros, and C. Antonopoulos, "Toward Robust ISAC Beam Tracking: Experimental OFDM-Enhanced Monopulse AoA Estimation with Reduced Tracking Variability," in *2026 15th International Symposium on Communication Systems, Networks and Digital Signal Processing (CSNDSP)*, 2026, doi: [10.1109/CSNDSP68462.2026.11654469](https://doi.org/10.1109/CSNDSP68462.2026.11654469).
+
+See [`CITATION.cff`](CITATION.cff) for machine-readable citation metadata.
 
 ## License
 
-Hardware is released under **CERN-OHL-S v2** and software/firmware under the **MIT License** — see [`LICENSE`](LICENSE) and [`hardware/LICENSE`](hardware/LICENSE). *(Confirm these choices before first release — see note in [`LICENSE`](LICENSE).)*
+Hardware is released under **CERN-OHL-S v2** and software/firmware under the **MIT License** — see [`LICENSE`](LICENSE) and [`hardware/LICENSE`](hardware/LICENSE).
